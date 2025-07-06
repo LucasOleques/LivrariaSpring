@@ -6,10 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 
 @Entity
-@Table(name = "livros")
+@Table(name = "livro")
 @Data
 @Builder
 @NoArgsConstructor
@@ -22,10 +22,6 @@ public class Livro {
     @Column(nullable = false)
     private String titulo;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "autor_id", nullable = false)
-    private Autor autor;
-
     @Column(nullable = false)
     private String localEstoque;
 
@@ -33,5 +29,9 @@ public class Livro {
     private Integer quantidadeEstoque;
 
     @Column(nullable = false)
-    private LocalDate dataEntradaEstoque;
+    private String dataEntradaEstoque;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "autor_id", nullable = false)
+    private Autor autor;
 }

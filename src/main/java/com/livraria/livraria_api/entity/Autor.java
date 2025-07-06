@@ -1,6 +1,5 @@
 package com.livraria.livraria_api.entity;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +7,7 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "autor")
 @Data
 @Builder
 @NoArgsConstructor

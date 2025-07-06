@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
-@RequestMapping("/api/v1/livros")
+@RequestMapping("/api/v1/livro")
 public class LivroController {
 
     private LivroRepository livroRepository;

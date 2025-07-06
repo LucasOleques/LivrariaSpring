@@ -118,3 +118,10 @@ Execute mvn spring-boot:run na raiz do projeto.
 Acesse http://localhost:8080/swagger-ui.html para ver a documentação.
 Use o Postman para testar os endpoints.
 Execute os testes JUnit na IDE ou com mvn test.
+
+
+
+
+Iniciar o projeto.....
+
+./mvnw spring-boot:run
