@@ -1,12 +1,12 @@
 package com.livraria.livraria_api.entity;
 
+import java.time.LocalDate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-//import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "livro")
@@ -29,9 +29,10 @@ public class Livro {
     private Integer quantidadeEstoque;
 
     @Column(nullable = false)
-    private String dataEntradaEstoque;
+    private LocalDate dataEntradaEstoque;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "autor_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Autor autor;
 }

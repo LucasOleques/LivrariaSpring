@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
 import com.livraria.livraria_api.entity.Livro;
 import com.livraria.livraria_api.repository.LivroRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
