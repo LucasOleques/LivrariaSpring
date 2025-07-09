@@ -2,9 +2,13 @@ package com.livraria.livraria_api.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
-import com.livraria.livraria_api.entity.Livro;
 import com.livraria.livraria_api.service.LivroService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +26,7 @@ public class LivroController {
     }
 
     @PostMapping
-    public MensagemResponseDTO create (@RequestBody Livro livro) {
-        return livroService.create(livro);
+    public MensagemResponseDTO create (@RequestBody @Valid LivroDTO livroDTO) {
+        return livroService.create(livroDTO);
     }
 }
