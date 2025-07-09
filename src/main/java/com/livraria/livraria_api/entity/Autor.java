@@ -16,12 +16,11 @@ public class Autor {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_autor;
 
     @Column(nullable = false, unique = true)
-    private String nome;
+    private String nome_autor;
 
     @Column(nullable = false)
-    private Integer idade;
-    
+    private Integer idade_autor;
 }

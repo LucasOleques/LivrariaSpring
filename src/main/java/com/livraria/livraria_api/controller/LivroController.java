@@ -2,12 +2,10 @@ package com.livraria.livraria_api.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
 import com.livraria.livraria_api.entity.Livro;
-import com.livraria.livraria_api.repository.LivroRepository;
+import com.livraria.livraria_api.service.LivroService;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -16,18 +14,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/api/v1/livro")
 public class LivroController {
 
-    private LivroRepository livroRepository;
+    private LivroService livroService;
 
     @Autowired
-    public LivroController(LivroRepository livroRepository) {
-        this.livroRepository = livroRepository;
+    public LivroController(LivroService livroService) {
+        this.livroService = livroService;
     }
 
     @PostMapping
-    public MensagemResponseDTO create (@RequestBody Livro livros) {
-        Livro savedLivro = livroRepository.save(livros);
-        return MensagemResponseDTO.builder()
-        .message("Livro criado com ID" + savedLivro.getId())
-        .build();
+    public MensagemResponseDTO create (@RequestBody Livro livro) {
+        return livroService.create(livro);
     }
 }

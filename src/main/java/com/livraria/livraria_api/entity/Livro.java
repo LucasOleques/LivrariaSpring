@@ -1,6 +1,5 @@
 package com.livraria.livraria_api.entity;
 
-import java.time.LocalDate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,24 +14,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livro {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_livro;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String titulo;
 
     @Column(nullable = false)
-    private String localEstoque;
+    private String local_estoque;
 
     @Column(nullable = false)
-    private Integer quantidadeEstoque;
-
-    @Column(nullable = false)
-    private LocalDate dataEntradaEstoque;
+    private Integer quantidade_estoque;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "autor_id", nullable = false)
+    @JoinColumn(name = "id_autor", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Autor autor;
 }
