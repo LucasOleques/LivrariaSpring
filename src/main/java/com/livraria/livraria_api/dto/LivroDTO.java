@@ -3,6 +3,7 @@ package com.livraria.livraria_api.dto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +22,11 @@ public class LivroDTO {
     @Size(max = 200)
     private String titulo;
 
-    @NotBlank
-    @Size(max = 100)
+    @Size(max = 20, message = "O campo local_estoque deve ter no máximo 20 caracteres")
+    @NotBlank(message = "O campo local_estoque não pode ser vazio")
+    @NotNull(message = "O campo local_estoque não pode ser nulo")
+    @Pattern(regexp = "^(?i)(reserva|prateleira)$", 
+            message = "O campo local_estoque deve ser 'Reserva' ou 'Prateleira'")
     private String local_estoque;
 
     @NotNull

@@ -26,7 +26,7 @@ public class LivroController {
     }
 
     @PostMapping
-    public MensagemResponseDTO create (@RequestBody @Valid LivroDTO livroDTO) {
-        return livroService.create(livroDTO);
+    public MensagemResponseDTO criarMensagemResponseDTO (@RequestBody @Valid LivroDTO livroDTO) {
+        return livroService.criarMensagemResponseDTO(livroDTO);
     }
 }

@@ -21,12 +21,12 @@ public class LivroService {
         this.livroRepository = livroRepository;
     }
 
-    public MensagemResponseDTO create (LivroDTO livroDto) {
+    public MensagemResponseDTO criarMensagemResponseDTO (LivroDTO livroDto) {
         Livro livroSalvo = livroMapper.toModel(livroDto);
 
         Livro savedLivro = livroRepository.save(livroSalvo);
         return MensagemResponseDTO.builder()
-        .message("Livro criado com ID " + savedLivro.getId_livro())
+        .mensagem("Livro criado com ID " + savedLivro.getId_livro())
         .build();
 
     }
