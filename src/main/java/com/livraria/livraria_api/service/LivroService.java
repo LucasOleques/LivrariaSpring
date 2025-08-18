@@ -1,10 +1,9 @@
 package com.livraria.livraria_api.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
 import com.livraria.livraria_api.entity.Livro;
@@ -33,8 +32,10 @@ public class LivroService {
 
     }
 
-    public LivroDTO encontrarId(Long id) {
-        Optional<Livro> optionalLivro = livroRepository.findById(id);
-        return livroMapper.toDTO(optionalLivro.get());
+    public LivroDTO encontrarId(Long id) throws LivroNotFoundException {
+        Livro livro = livroRepository.findById(id)
+        .orElseThrow(() -> new LivroNotFoundException(id));
+
+        return livroMapper.toDTO(livro);
     }
 }

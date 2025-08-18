@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.entity.Livro;
 import com.livraria.livraria_api.repository.LivroRepository;
@@ -26,7 +27,7 @@ public class LivroServiceTest {
     private LivroService livroService;
 
     @Test
-    void quandoUmIdExisteRetornarLivro() {
+    void quandoUmIdExisteRetornarLivro() throws LivroNotFoundException {
         Livro livroExperado = LivroUtills.criarFakeLivro();
 
         when(livroRepository.findById(livroExperado.getId_livro())).thenReturn(Optional.of(livroExperado));

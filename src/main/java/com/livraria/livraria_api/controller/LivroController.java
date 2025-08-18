@@ -3,6 +3,7 @@ package com.livraria.livraria_api.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
 import com.livraria.livraria_api.service.LivroService;
@@ -33,7 +34,7 @@ public class LivroController {
     }
 
     @GetMapping("/{id}")
-    public LivroDTO encontrarId( @PathVariable Long id) {
+    public LivroDTO encontrarId(@PathVariable Long id) throws LivroNotFoundException {
         return livroService.encontrarId(id);
     }
 }

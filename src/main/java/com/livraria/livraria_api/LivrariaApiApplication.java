@@ -11,14 +11,18 @@ public class LivrariaApiApplication {
 	}
 }
 
-// No terminal:  mvn spring-boot:run
-// POST PARA: http://localhost:8081/api/v1/livro
-/*{
-  "titulo": "tituloteste5",
-  "local_estoque": "prateleira5",
-  "quantidade_estoque": 15,
-  "autor": {
-    "nome_autor": "nomeautor5",
-    "idade_autor": 20
-  }
-} */
+/*
+
+No terminal:  mvn spring-boot:run
+POST PARA: http://localhost:8081/api/v1/livro
+
+{
+	"titulo": "titulo livro teste",
+    "local_estoque": "prateleira",
+    "quantidade_estoque": "10",
+    "autor" : {
+        "nome_autor": "autor livro",
+        "idade_autor": "30"
+    }
+}
+*/
