@@ -1,5 +1,7 @@
 package com.livraria.livraria_api.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,10 @@ public class LivroService {
         .mensagem("Livro criado com ID " + savedLivro.getId_livro())
         .build();
 
+    }
+
+    public LivroDTO encontrarId(Long id) {
+        Optional<Livro> optionalLivro = livroRepository.findById(id);
+        return livroMapper.toDTO(optionalLivro.get());
     }
 }
