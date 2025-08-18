@@ -1,5 +1,6 @@
 package com.livraria.livraria_api.service;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 import java.util.Optional;
@@ -11,9 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.entity.Livro;
+import com.livraria.livraria_api.exception.LivroNotFoundException;
 import com.livraria.livraria_api.repository.LivroRepository;
 import com.livraria.livraria_api.utills.LivroUtills;
 
@@ -36,5 +37,14 @@ public class LivroServiceTest {
 
         Assertions.assertEquals(livroExperado.getTitulo(),livroDTO.getTitulo());
         Assertions.assertEquals(livroExperado.getQuantidade_estoque(),livroDTO.getQuantidade_estoque());    
+    }
+
+    @Test
+    void quandoUmIdNaoExistenteRetornarExcecao() {
+        var idInexistente = 10L;
+
+        when(livroRepository.findById(idInexistente)).thenReturn(Optional.ofNullable(any(Livro.class)));
+
+        assertThrows(LivroNotFoundException.class, () -> livroService.encontrarId(idInexistente));
     }
 }

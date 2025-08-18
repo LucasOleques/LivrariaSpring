@@ -3,9 +3,9 @@ package com.livraria.livraria_api.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
+import com.livraria.livraria_api.exception.LivroNotFoundException;
 import com.livraria.livraria_api.service.LivroService;
 
 import jakarta.validation.Valid;
@@ -28,7 +28,7 @@ public class LivroController {
         this.livroService = livroService;
     }
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public MensagemResponseDTO criarMensagemResponseDTO (@RequestBody @Valid LivroDTO livroDTO) {
         return livroService.criarMensagemResponseDTO(livroDTO);
     }

@@ -3,10 +3,10 @@ package com.livraria.livraria_api.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.livraria.livraria_api.Exception.LivroNotFoundException;
 import com.livraria.livraria_api.dto.LivroDTO;
 import com.livraria.livraria_api.dto.MensagemResponseDTO;
 import com.livraria.livraria_api.entity.Livro;
+import com.livraria.livraria_api.exception.LivroNotFoundException;
 import com.livraria.livraria_api.mapper.LivroMapper;
 import com.livraria.livraria_api.repository.LivroRepository;
 
