@@ -86,7 +86,3 @@ http://localhost:8081/api/v1/livro/2
 ## Testes
 
 Os testes estão localizados em: `src/test/java/com/livraria/livraria_api/`.`
-
-## Licença
-
-Este projeto está sob a licença Apache 2.0.
