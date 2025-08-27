@@ -47,7 +47,9 @@ src/
 
 ## Como executar
 
-1. Configure o banco de dados PostgreSQL conforme o arquivo `src/main/resources/application.properties`.
+1. Configure o banco de dados PostgreSQL conforme o arquivo: `src/main/resources/application.properties`.
+
+
 2. Execute o comando:
 
 ```sh
@@ -57,8 +59,10 @@ mvn spring-boot:run
 3. Acesse a API em: [http://localhost:8081/api/v1/livro](http://localhost:8081/api/v1/livro)
 
 ## Exemplos de uso
+Para os testes via Postman ou outra ferramenta de API, utilize os seguintes exemplos:
 
 ### Cadastro de Livro
+- Utilizar o endpoint `POST /api/v1/livro/cadastrar`;
 
 ```json
 {
@@ -72,9 +76,16 @@ mvn spring-boot:run
 }
 ```
 
+### Buscar Livro
+- Utilizar o endpoint `GET /api/v1/livro/{id}`;
+
+``` PowerShell
+http://localhost:8081/api/v1/livro/2
+```
+
 ## Testes
 
-Os testes estão localizados em `src/test/java/com/livraria/livraria_api/`.
+Os testes estão localizados em: `src/test/java/com/livraria/livraria_api/`.`
 
 ## Licença
 
