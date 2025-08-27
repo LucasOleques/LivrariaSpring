@@ -79,7 +79,7 @@ Para os testes via Postman ou outra ferramenta de API, utilize os seguintes exem
 ### Buscar Livro
 - Utilizar o endpoint `GET /api/v1/livro/{id}`;
 
-``` PowerShell
+``` URL
 http://localhost:8081/api/v1/livro/2
 ```
 
