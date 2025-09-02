@@ -14,7 +14,7 @@ public class LivrariaApiApplication {
 /*
 
 No terminal:  mvn spring-boot:run
-http://localhost:8081/api/v1/livro
+http://localhost:8080/api/v1/livro
 
 {
 	"titulo": "titulo livro teste",
