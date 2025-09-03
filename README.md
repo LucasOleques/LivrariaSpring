@@ -25,7 +25,7 @@ API REST para gerenciamento de livros, autores, usuários e vendas em uma livrar
 
 ## Estrutura do Projeto
 
-``` Java
+``` text
 src/
   main/
     java/com/livraria/livraria_api/
