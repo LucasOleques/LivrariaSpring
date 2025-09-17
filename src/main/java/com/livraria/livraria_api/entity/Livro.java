@@ -28,6 +28,9 @@ public class Livro {
     @Column(nullable = false)
     private Integer quantidade_estoque;
 
+    @Column(nullable = false)
+    private String isbn;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "id_autor", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

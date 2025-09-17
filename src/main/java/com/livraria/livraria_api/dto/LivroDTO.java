@@ -31,16 +31,15 @@ public class LivroDTO {
 
     @NotNull
     private Integer quantidade_estoque;
-    
-    @Valid
-    @NotNull
-    private AutorDTO autor;
 
-    /*
     @NotBlank
     @Size(max = 100)
     @Pattern(regexp = "(?:ISBN(?:-10)?:?)?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){4})[0-9]{13}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$", 
             message = "ISBN deve ser válido")
     private String isbn;
-     */
+    
+    @Valid
+    @NotNull
+    private AutorDTO autor;
+
 }
